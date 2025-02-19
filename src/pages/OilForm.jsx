@@ -4,40 +4,12 @@ import { Table } from "antd";
 
 const columns = [
   {
-    title: "Name",
+    title: "Lubricant Name",
     dataIndex: "name",
     filters: [
       {
-        text: "Joe",
-        value: "Joe",
-      },
-      {
-        text: "Category 1",
-        value: "Category 1",
-        children: [
-          {
-            text: "Yellow",
-            value: "Yellow",
-          },
-          {
-            text: "Pink",
-            value: "Pink",
-          },
-        ],
-      },
-      {
-        text: "Category 2",
-        value: "Category 2",
-        children: [
-          {
-            text: "Green",
-            value: "Green",
-          },
-          {
-            text: "Black",
-            value: "Black",
-          },
-        ],
+        text: "Agip BLASIA S 320",
+        value: "Agip BLASIA S 320",
       },
     ],
     filterMode: "tree",
@@ -46,94 +18,119 @@ const columns = [
     width: "30%",
   },
   {
-    title: "Name",
-    dataIndex: "name",
+    title: "Type",
+    dataIndex: "type",
     filters: [
       {
-        text: "Joe",
-        value: "Joe",
+        text: "Synthetic",
+        value: "Synthetic",
       },
       {
-        text: "Category 1",
-        value: "Category 1",
-        children: [
-          {
-            text: "Yellow",
-            value: "Yellow",
-          },
-          {
-            text: "Pink",
-            value: "Pink",
-          },
-        ],
-      },
-      {
-        text: "Category 2",
-        value: "Category 2",
-        children: [
-          {
-            text: "Green",
-            value: "Green",
-          },
-          {
-            text: "Black",
-            value: "Black",
-          },
-        ],
+        text: "Mineral",
+        value: "Mineral",
       },
     ],
     filterMode: "tree",
     filterSearch: true,
-    onFilter: (value, record) => record.name.includes(value),
+    onFilter: (value, record) => record.type.includes(value),
     width: "30%",
   },
   {
-    title: "Age",
-    dataIndex: "age",
-    sorter: (a, b) => a.age - b.age,
+    title: "V-Inx(c)",
+    dataIndex: "viscosityindex",
+    sorter: (a, b) => a.viscosityindex - b.viscosityindex,
   },
   {
-    title: "Address",
-    dataIndex: "address",
+    title: "V-40(c)",
+    dataIndex: "viscosity40",
+    sorter: (a, b) => a.viscosity40 - b.viscosity40,
+  },
+  {
+    title: "Density",
+    dataIndex: "density",
+    sorter: (a, b) => a.density - b.density,
+  },
+  {
+    title: "PourPoint",
+    dataIndex: "pourpoint",
+    sorter: (a, b) => a.pourpoint - b.pourpoint,
+  },
+  {
+    title: "FlashPoint",
+    dataIndex: "flashpoint",
+    sorter: (a, b) => a.flashpoint - b.flashpoint,
+  },
+  {
+    title: "Thickener",
+    dataIndex: "thickener",
     filters: [
       {
-        text: "London",
-        value: "London",
+        text: "Lithium Complex",
+        value: "Lithium Complex",
       },
       {
-        text: "New York",
-        value: "New York",
+        text: "Poly-Urea",
+        value: "Poly-Urea",
+      },
+      {
+        text: "PTFE",
+        value: "PTFE",
+      },
+      {
+        text: "Poly-Alkylene(PAG)",
+        value: "Poly-Alkylene(PAG)",
       },
     ],
-    onFilter: (value, record) => record.address.startsWith(value),
+    filterMode: "tree",
     filterSearch: true,
-    width: "40%",
+    onFilter: (value, record) => record.thickener.includes(value),
+    width: "30%",
+  },
+  {
+    title: "Color",
+    dataIndex: "color",
+    filters: [
+      {
+        text: "white",
+        value: "white",
+      },
+      {
+        text: "Blue",
+        value: "Blue",
+      },
+      {
+        text: "Red",
+        value: "Red",
+      },
+      {
+        text: "Green",
+        value: "Green",
+      },
+    ],
+    filterMode: "tree",
+    filterSearch: true,
+    onFilter: (value, record) => record.color.includes(value),
+    width: "30%",
+  },
+  {
+    title: "NLGI",
+    dataIndex: "nlgi",
+    sorter: (a, b) => a.nlgi - b.nlgi,
   },
 ];
 const data = [
   {
     key: "1",
-    name: "John Brown",
-    age: 32,
-    address: "New York No. 1 Lake Park",
-  },
-  {
-    key: "2",
-    name: "Jim Green",
-    age: 42,
-    address: "London No. 1 Lake Park",
-  },
-  {
-    key: "3",
-    name: "Joe Black",
-    age: 32,
-    address: "Sydney No. 1 Lake Park",
-  },
-  {
-    key: "4",
-    name: "Jim Red",
-    age: 32,
-    address: "London No. 2 Lake Park",
+    name: "Agip BLASIA S 320",
+    type: "Synthetic",
+    viscosityindex: 205,
+    viscosity40: 320,
+    density: 1030,
+    pourpoint: -33,
+    flashpoint: 242,
+    thickener: "",
+    color: "",
+    nlgi: "1",
   },
 ];
 const onChange = (pagination, filters, sorter, extra) => {

@@ -22,9 +22,21 @@ const MenuList = ({ darkTheme }) => {
         <Menu.Item key={"home"} icon={<HomeOutlined />}>
           <Link to={"/dashboard"}>داشبورد</Link>
         </Menu.Item>
-        <Menu.Item key={"submitform"} icon={<FormOutlined />}>
-          <Link to={"/submitform"}>ثبت فرم</Link>
-        </Menu.Item>
+        <Menu.SubMenu
+          key={"submitforms"}
+          icon={<FormOutlined />}
+          title={"ثبت فرم"}
+        >
+          <Menu.Item key={"submitform"}>
+            <Link to={"/submitform"}>فرم روزانه</Link>
+          </Menu.Item>
+          <Menu.Item key={"oilform"}>
+            <Link to={"/submitoil"}>فرم روغن</Link>
+          </Menu.Item>
+          <Menu.Item key={"greaseform"}>
+            <Link to={"/submitgrease"}>فرم گریس</Link>
+          </Menu.Item>
+        </Menu.SubMenu>
         <Menu.SubMenu key={"subtasks"} icon={<BarsOutlined />} title="فرم ها">
           <Menu.Item key={"forms"}>
             {" "}

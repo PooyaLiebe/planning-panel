@@ -12,6 +12,8 @@ import TecOpForms from "./pages/TecOpForms";
 import GreaseForm from "./pages/GreaseForm";
 import OilForm from "./pages/OilForm";
 import Setting from "./pages/Setting";
+import SubmitOil from "./pages/SubmitOil";
+import SubmitGrease from "./pages/SubmitGrease";
 
 function App() {
   const { Header, Sider } = Layout;
@@ -53,6 +55,8 @@ function App() {
             </Header>
             <Routes>
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/submitoil" element={<SubmitOil />} />
+              <Route path="/submitgrease" element={<SubmitGrease />} />
               <Route path="/submitform" element={<SubmitForm />} />
               <Route path="/tecopforms" element={<TecOpForms />} />
               <Route path="/greaseform" element={<GreaseForm />} />
