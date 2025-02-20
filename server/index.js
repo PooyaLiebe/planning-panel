@@ -1,25 +1,37 @@
 /* eslint-disable no-unused-vars */
 import express from "express";
-import bodyParser from "body-parser";
 import mongoose from "mongoose";
+import connectDB from "./db.js";
+import { oilModel } from "./models/OilLubricant.js";
+import { PersonelModel } from "./models/Personels.js";
 import cors from "cors";
-import postRoutes from "./Routes/posts.js";
+
 const app = express();
-
-app.use(bodyParser.json({ limit: "30mb", extended: true }));
-app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
-app.use("/posts", postRoutes);
+app.use(express.json());
 
-const CONNECTION_URL =
-  "mongodb+srv://pooya:pooya6331@preventive.nytf8.mongodb.net/?retryWrites=true&w=majority&appName=Preventive"; // Replace with your actual password!
-const PORT = process.env.PORT || 5000;
+connectDB();
 
-mongoose
-  .connect(CONNECTION_URL) // Remove the options object entirely
-  .then(() =>
-    app.listen(PORT, () => console.log(`Server Running on port : ${PORT}`))
-  )
-  .catch((error) => console.log(error.message));
+app.post("/", (req, res) => {
+  const { username, password } = req.body;
+  PersonelModel.findOne({ username, password }).then((user) => {
+    if (user) {
+      if (user.password === password) {
+        res.json("Success");
+      } else {
+        res.json("Wrong Password");
+      }
+    } else {
+      res.json("No Record Existed");
+    }
+  });
+});
 
-// mongoose.set("useFindAndModify", false);  // REMOVE THIS LINE COMPLETELY
+app.get("/oilform", async (req, res) => {
+  const response = await oilModel.find();
+  return res.json({ items: response });
+});
+
+app.listen(5000, () => {
+  console.log("App is running");
+});
