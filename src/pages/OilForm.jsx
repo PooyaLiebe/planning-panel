@@ -132,6 +132,32 @@ const data = [
     color: "",
     nlgi: "1",
   },
+  {
+    key: "2",
+    name: "Shell Omala S2 G220",
+    type: "--",
+    viscosityindex: 100,
+    viscosity40: 220,
+    density: 899,
+    pourpoint: -18,
+    flashpoint: 240,
+    thickener: "",
+    color: "",
+    nlgi: "",
+  },
+  {
+    key: "3",
+    name: "",
+    type: "--",
+    viscosityindex: 100,
+    viscosity40: 220,
+    density: 899,
+    pourpoint: -18,
+    flashpoint: 240,
+    thickener: "",
+    color: "",
+    nlgi: "",
+  },
 ];
 const onChange = (pagination, filters, sorter, extra) => {
   console.log("params", pagination, filters, sorter, extra);
